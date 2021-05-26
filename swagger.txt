@@ -1,0 +1,334 @@
+swagger: '2.0'
+info:
+  description: Rest Documentation
+  version: '1.0'
+  title: Hotel Booking System
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+host: 'localhost:8080'
+basePath: /myapp
+tags:
+  - name: Hotel-rest-controller
+    description: Hotel Rest Controller
+  - name: User-rest-controller
+    description: User Rest Controller
+ 
+paths:
+  '/Hotel/delete/{id}':
+    delete:
+      tags:
+        - Hotel-rest-controller
+      summary: deleteHotel
+      operationId: deleteHotelUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hotel'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /Hotel/getlist:
+    get:
+      tags:
+        - Hotel-rest-controller
+      summary: allHotel
+      operationId: allHotelUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hotel'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/Hotel/getrecord/{id}':
+    get:
+      tags:
+        - Hotel-rest-controller
+      summary: getHotel
+      operationId: getHotelUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hotel'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /Hotel/insert:
+    post:
+      tags:
+        - Hotel-rest-controller
+      summary: createHotel
+      operationId: createHotelUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: Hotel
+          description: Hotel
+          required: true
+          schema:
+            $ref: '#/definitions/Hotel'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Hotel'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /Hotel/update:
+    put:
+      tags:
+        - Hotel-rest-controller
+      summary: updateHotel
+      operationId: updateHotelUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: Hotel
+          description: Hotel
+          required: true
+          schema:
+            $ref: '#/definitions/Hotel'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hotel'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/User/delete/{id}':
+    delete:
+      tags:
+        - User-rest-controller
+      summary: deleteUser
+      operationId: deleteUserUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /User/getlist:
+    get:
+      tags:
+        - User-rest-controller
+      summary: allUser
+      operationId: allUserUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/User/getrecord/{id}':
+    get:
+      tags:
+        - User-rest-controller
+      summary: getUser
+      operationId: getUserUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /User/insert:
+    post:
+      tags:
+        - User-rest-controller
+      summary: createUser
+      operationId: createUserUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: User
+          description: User
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /User/update:
+    put:
+      tags:
+        - User-rest-controller
+      summary: updateUser
+      operationId: updateUserUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: User
+          description: User
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+definitions:
+  Hotel:
+    type: object
+    properties:
+      HotelId:
+        type: integer
+        format: int32
+      HotelName:
+        type: string
+      Hotel_location:
+        type: string
+        
+      User:
+        $ref: '#/definitions/User'
+    title: Hotel
+  User:
+    type: object
+    properties:
+      UserName:
+        type: string
+      UserId:
+        type: integer
+        format: int32
+      
+    title: User
+ 
